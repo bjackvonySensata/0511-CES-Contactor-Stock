@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <title>View Request {{ req.id }}</title>
+</head>
+<body>
+  <h1>Request #{{ req.id }}</h1>
+
+  <p><strong>Requester:</strong> {{ req.requester }}</p>
+  <p><strong>Part Number:</strong> {{ req.part_number }}</p>
+  <p><strong>Quantity:</strong> {{ req.quantity }}</p>
+  <p><strong>Status:</strong> {{ req.status }}</p>
+  <p><strong>Created At:</strong> {{ req.created_at }}</p>
+
+  <br>
+  <a href="/bom_dashboard">← Back to BOM Dashboard</a> |
+  <a href="/request/{{ req.id }}/scan">📦 Start Scanning</a>
+</body>
+</html>
