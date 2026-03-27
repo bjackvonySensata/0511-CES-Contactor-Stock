@@ -7,9 +7,13 @@ app = Flask(__name__)
 app.secret_key = "supersecret"  # needed for flash messages
 
 # --- Supabase setup ---
-url: str = os.getenv("SUPABASE_URL", "https://YOUR-PROJECT.supabase.co")
-key: str = os.getenv("SUPABASE_KEY", "YOUR-ANON-KEY")
-supabase: Client = create_client(url, key)
+# url: str = os.getenv("SUPABASE_URL", "https://YOUR-PROJECT.supabase.co")
+# key: str = os.getenv("SUPABASE_KEY", "YOUR-ANON-KEY")
+# supabase: Client = create_client(url, key)
+supabase = create_client(
+    os.environ.get("SUPABASE_URL"),
+    os.environ.get("SUPABASE_SERVICE_KEY")
+)
 
 # --- Helpers ---
 def get_request_progress(request_id):
